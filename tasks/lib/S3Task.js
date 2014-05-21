@@ -61,12 +61,16 @@ S3Task.prototype = {
       var transfer = transferFn();
 
       transfer.done(function (msg) {
-        grunt.log.ok(msg);
+        if (config.logSuccess) {
+          grunt.log.ok(msg);
+        }
         completed();
       });
 
       transfer.fail(function (msg) {
-        grunt.log.error(msg);
+        if (config.logErrors) {
+          grunt.log.error(msg);
+        }
         ++errors;
         completed();
       });
@@ -136,8 +140,10 @@ S3Task.prototype = {
       secret: process.env.AWS_SECRET_ACCESS_KEY,
       debug: false,
       verify: false,
-      maxOperations: 0,
-      encodePaths: false
+      maxOperations: 20,
+      encodePaths: false,
+      logSuccess: true,
+      logErrors: true
     };
 
     // Grab the actions to perform from the task data, default to empty arrays

@@ -36,7 +36,7 @@
     "underscore.deferred": "~0.1.4",
     "knox": "git://github.com/Coridyn/knox.git#0.8.6-wiwo.1",
     "mime": "~1.2.5",
-    "temporary": "0.0.5"
+    "temporary": "0.0.8"
   },
   "devDependencies": {
     "nodeunit": "~0.7.4",
